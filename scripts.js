@@ -3,7 +3,11 @@ let nextPlayer = 'X'; // takes a value of either 'X' or 'O' according to the gam
 //initialize the game
 
 // use the value stored in the nextPlayer variable to indicate who the next player is
-
+let p1 = 'Y';
+let p2 = 'X';
+let nextLabel = document.getElementById('next-lbl');
+nextLabel.innerText = nextPlayer
+let counter =0;
 
 //This call will create the buttons needed for the gameboard.
 createGameBoard()
@@ -11,7 +15,11 @@ createGameBoard()
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
-   
+    let cells = document.querySelector("td");
+    for( let c =0; c< 9; c++){
+        document.getElementById(cell[c].appendChild(newButton));
+    }
+
 }
 
 // Programatically add 'takeCell' as an event listener to all the buttons on the board
@@ -28,12 +36,24 @@ function takeCell(event)
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
 
+        let clickedBtn = event.target;
+    clickedBtn.innerText = nextPlayer;
+    if (nextPlayer === 'X'){
+        nextPlayer = 'Y';
+    }else if (nextPlayer === 'Y'){
+        nextPlayer = 'X';
+    }
+    nextLabel.innerText = nextPlayer;
+    counter++;
+
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
 
     // Check if the game is over
     if (isGameOver())
     {
         // let the lable with the id 'game-over-lbl' display the words 'Game Over' inside <h1> element
+        let gameOver = document.getElementById('game-over-lbl');
+        nextLabel.innerHTML = '<h1>GameOver</h1>'
     }
 
     // I'll leave declaring the winner for your intrinsic motivation, it's not required for this assignment 
@@ -42,5 +62,5 @@ function takeCell(event)
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
-   
+    return (counter == 9);
 }
