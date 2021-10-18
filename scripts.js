@@ -8,18 +8,13 @@ let p2 = 'X';
 let nextLabel = document.getElementById('next-lbl');
 nextLabel.innerText = nextPlayer
 let counter =0;
-
 //This call will create the buttons needed for the gameboard.
 createGameBoard()
 
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
-    let cells = document.querySelector("td");
-    for( let c =0; c< 9; c++){
-        document.getElementById(cell[c].appendChild(newButton));
-    }
-
+   
 }
 
 // Programatically add 'takeCell' as an event listener to all the buttons on the board
@@ -35,8 +30,8 @@ function takeCell(event)
     /*
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
-
-        let clickedBtn = event.target;
+    
+    let clickedBtn = event.target;
     clickedBtn.innerText = nextPlayer;
     if (nextPlayer === 'X'){
         nextPlayer = 'Y';
@@ -47,7 +42,7 @@ function takeCell(event)
     counter++;
 
     // Make sure the button is clickable only once (I didn't mention how to do that, look it up :) )
-
+    
     // Check if the game is over
     if (isGameOver())
     {
@@ -62,5 +57,6 @@ function takeCell(event)
 function isGameOver()
 {
     // This function returns true if all the buttons are disabled and false otherwise 
+   
     return (counter == 9);
 }
