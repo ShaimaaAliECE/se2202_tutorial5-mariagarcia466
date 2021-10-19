@@ -11,6 +11,7 @@ let counter =0;
 //This call will create the buttons needed for the gameboard.
 createGameBoard()
 
+
 function createGameBoard()
 {
     // Programatically add a button with square brackets enclosing an empty space to each cell in the gameboard
@@ -30,14 +31,11 @@ function takeCell(event)
     /*
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
-
     let clickedBtn = event.target;
     clickedBtn.innerText = nextPlayer;
     clickedBtn.disabled = true;
-
     if (nextPlayer === 'X'){
         nextPlayer = 'Y';
-
     }else if (nextPlayer === 'Y'){
         nextPlayer = 'X';
     }
