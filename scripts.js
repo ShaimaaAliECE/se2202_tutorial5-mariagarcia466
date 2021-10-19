@@ -30,11 +30,14 @@ function takeCell(event)
     /*
         When the button is clicked, the space inside its square brackets is replaced by the value in the nextPlayer before switching it
     */
-    
+
     let clickedBtn = event.target;
     clickedBtn.innerText = nextPlayer;
+    clickedBtn.disabled = true;
+
     if (nextPlayer === 'X'){
         nextPlayer = 'Y';
+
     }else if (nextPlayer === 'Y'){
         nextPlayer = 'X';
     }
